@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Antonio Sampayo — Economist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #FFFFFF;
+    --slate: #F0F2F5;
+    --accent: #00529B;
+    --gold: #8B6914;
+    --gold-light: #6B4F10;
+    --ivory: #1A1A2E;
+    --text-muted: #6C757D;
+    --text-body: #374151;
+    --border: rgba(0,0,0,0.1);
+    --border-gold: rgba(139,105,20,0.2);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--navy); color: var(--text-body); font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.7; overflow-x: hidden; }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    border-bottom: 0.5px solid var(--border);
+    padding: 0 2.5rem; display: flex; align-items: center; justify-content: space-between; height: 60px;
+  }
+  .nav-logo { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; color: var(--gold); text-transform: uppercase; text-decoration: none; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { text-decoration: none; font-size: 13px; color: var(--text-muted); letter-spacing: 0.04em; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--ivory); }
+
+  /* HERO */
+  .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 70% 50%, rgba(0,82,155,0.03) 0%, transparent 70%), radial-gradient(ellipse 40% 60% at 20% 80%, rgba(139,105,20,0.02) 0%, transparent 60%); pointer-events: none; }
+  .hero-left { display: flex; flex-direction: column; justify-content: center; padding: 8rem 3.5rem 4rem; position: relative; z-index: 1; }
+  .hero-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; color: var(--gold); text-transform: uppercase; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
+  .hero-eyebrow::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--gold); }
+  .hero-title { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 5vw, 4rem); font-weight: 400; line-height: 1.12; color: var(--ivory); margin-bottom: 0.5rem; }
+  .hero-title em { font-style: italic; color: var(--gold-light); }
+  .hero-cv { margin-left: auto; font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.12em; color: var(--accent); text-decoration: none; text-transform: uppercase; align-self: flex-start; padding-top: 0.5rem; }
+  .hero-cv:hover { color: var(--gold); text-decoration: underline; }
+  .hero-role { font-size: 17px; color: var(--text-body); margin-bottom: 0.35rem; }
+  .hero-affil { font-size: 14px; color: var(--text-muted); margin-bottom: 0.35rem; }
+  .hero-affil a { color: var(--accent); text-decoration: none; }
+  .hero-affil a:hover { text-decoration: underline; }
+  .hero-updated { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.1em; color: var(--text-muted); text-transform: uppercase; margin: 1.5rem 0 2.5rem; }
+  .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.7rem 1.6rem; background: var(--gold); color: #fff; text-decoration: none; font-size: 13px; font-weight: 600; letter-spacing: 0.04em; transition: background 0.2s, transform 0.15s; }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .btn-secondary { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.7rem 1.6rem; background: transparent; color: var(--ivory); text-decoration: none; font-size: 13px; letter-spacing: 0.04em; border: 0.5px solid var(--border); transition: border-color 0.2s, color 0.2s; }
+  .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+  .hero-right { display: flex; align-items: center; justify-content: center; padding: 8rem 3rem 4rem 1rem; position: relative; z-index: 1; }
+  .info-card { width: 100%; max-width: 340px; }
+  .info-header { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.14em; color: var(--text-muted); text-transform: uppercase; margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 0.5px solid var(--border); }
+  .info-item { margin-bottom: 1.25rem; }
+  .info-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.1em; color: var(--gold); text-transform: uppercase; margin-bottom: 0.15rem; }
+  .info-value { font-size: 13.5px; color: var(--ivory); line-height: 1.5; }
+  .info-value a { color: var(--accent); text-decoration: none; }
+  .info-value a:hover { text-decoration: underline; }
+
+  /* STATS */
+  .stats-bar { border-top: 0.5px solid var(--border); border-bottom: 0.5px solid var(--border); display: grid; grid-template-columns: repeat(4, 1fr); }
+  .stat-cell { padding: 2rem 2.5rem; border-right: 0.5px solid var(--border); text-align: center; }
+  .stat-cell:last-child { border-right: none; }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 600; color: var(--ivory); display: block; line-height: 1; margin-bottom: 0.3rem; }
+  .stat-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.12em; color: var(--text-muted); text-transform: uppercase; }
+
+  /* SECTIONS */
+  section { padding: 5rem 0; }
+  .container { max-width: 1000px; margin: 0 auto; padding: 0 3rem; }
+  .section-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.18em; color: var(--gold); text-transform: uppercase; display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; }
+  .section-label::after { content: ''; flex: 1; height: 0.5px; background: var(--border-gold); max-width: 120px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 400; color: var(--ivory); line-height: 1.25; margin-bottom: 1.5rem; }
+
+  /* EDUCATION */
+  #education { background: rgba(0,0,0,0.02); }
+  .edu-grid { display: flex; flex-direction: column; gap: 0; border-top: 0.5px solid var(--border); }
+  .edu-item { display: grid; grid-template-columns: 65px 1fr; gap: 1.5rem; padding: 1.25rem 0; border-bottom: 0.5px solid var(--border); }
+  .edu-year { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--gold); letter-spacing: 0.06em; padding-top: 2px; }
+  .edu-title { font-size: 14px; color: var(--ivory); font-weight: 500; margin-bottom: 0.15rem; }
+  .edu-inst { font-size: 13px; color: var(--text-muted); }
+
+  /* PUBLICATIONS */
+  .pub-subsection { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.12em; color: var(--accent); text-transform: uppercase; margin: 2.5rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 0.5px solid var(--border); }
+  .pub-subsection:first-of-type { margin-top: 0; }
+  .pub-list { display: flex; flex-direction: column; }
+  .pub-item { display: grid; grid-template-columns: 55px 1fr; gap: 1.25rem; padding: 1.25rem 0; border-bottom: 0.5px solid var(--border); }
+  .pub-year { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--gold); letter-spacing: 0.06em; padding-top: 3px; }
+  .pub-title { font-size: 14px; color: var(--ivory); font-weight: 400; margin-bottom: 0.2rem; line-height: 1.45; }
+  .pub-title a { color: var(--ivory); text-decoration: none; border-bottom: 1px solid var(--border); transition: border-color 0.2s; }
+  .pub-title a:hover { border-color: var(--accent); color: var(--accent); }
+  .pub-authors { font-size: 12px; color: var(--text-muted); margin-bottom: 0.15rem; }
+  .pub-journal { font-size: 12px; color: var(--accent); font-style: italic; }
+
+  /* TEACHING */
+  #teaching { background: rgba(0,0,0,0.02); }
+  .teach-group { margin-bottom: 2rem; }
+  .teach-group-title { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.12em; color: var(--accent); text-transform: uppercase; margin-bottom: 0.75rem; padding-bottom: 0.5rem; border-bottom: 0.5px solid var(--border); }
+  .teach-item { display: grid; grid-template-columns: 1fr auto; gap: 1rem; padding: 0.6rem 0; border-bottom: 0.5px solid rgba(0,0,0,0.04); }
+  .teach-name { font-size: 14px; color: var(--ivory); }
+  .teach-period { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-muted); letter-spacing: 0.04em; }
+
+  /* CONTACT */
+  #contact { background: var(--slate); border-top: 0.5px solid var(--border); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 2rem; }
+  .contact-item { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.5rem; }
+  .contact-icon { font-size: 1rem; color: var(--gold); margin-top: 2px; flex-shrink: 0; }
+  .contact-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.2rem; }
+  .contact-value { font-size: 14px; color: var(--ivory); }
+  .contact-value a { color: var(--accent); text-decoration: none; }
+  .contact-value a:hover { color: var(--gold); }
+
+  /* FOOTER */
+  footer { background: #1A2332; border-top: 0.5px solid var(--border); padding: 2rem 3rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+  .footer-logo { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #8A9BB0; letter-spacing: 0.12em; text-transform: uppercase; }
+  .footer-copy { font-size: 12px; color: #8A9BB0; }
+  .footer-links { display: flex; gap: 1.5rem; list-style: none; }
+  .footer-links a { font-size: 12px; color: #8A9BB0; text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: #FFFFFF; }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    .hero-left { padding: 7rem 2rem 4rem; }
+    .stats-bar { grid-template-columns: repeat(2, 1fr); }
+    .contact-grid { grid-template-columns: 1fr; }
+    nav { padding: 0 1.5rem; }
+    .container { padding: 0 1.5rem; }
+  }
+  @media (max-width: 600px) {
+    .stats-bar { grid-template-columns: 1fr 1fr; }
+    .teach-item { grid-template-columns: 1fr; gap: 0.2rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#">A. Sampayo</a>
+  <ul class="nav-links">
+    <li><a href="#education">Education</a></li>
+    <li><a href="#publications">Research</a></li>
+    <li><a href="#teaching">Teaching</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Economist</p>
+    <div style="display:flex;align-items:center;gap:1.75rem;margin-bottom:0.5rem;">
+      <img src="foto1.jpg" alt="Antonio Sampayo" style="width:110px;height:110px;border-radius:50%;object-fit:cover;object-position:center 15%;border:2.5px solid rgba(0,0,0,0.08);box-shadow:0 4px 12px rgba(0,0,0,0.1);flex-shrink:0;">
+      <h1 class="hero-title">Antonio<br><em>Sampayo</em></h1>
+      <a href="CVAntonio2026.pdf" class="hero-cv" target="_blank">CV</a>
+    </div>
+    <p class="hero-role">Associate Professor · <a href="https://www.usc.gal/en/department/fundamentals-economic-analysis/directory/antonio-rodriguez-sampayo-902" style="color:var(--text-body);text-decoration:none;border-bottom:1px solid var(--border);">Dept. de Fundamentos da Análise Económica</a></p>
+    <p class="hero-affil"><a href="https://www.usc.gal" target="_blank">Universidade de Santiago de Compostela</a></p>
+    <p class="hero-affil">Permanent Researcher · <a href="https://ecobas.gal/en/" target="_blank">ECOBAS</a></p>
+    <p class="hero-updated">Updated: June, 2025</p>
+    <div class="hero-ctas">
+      <a href="#publications" class="btn-primary">Publications →</a>
+      <a href="#teaching" class="btn-secondary">Teaching</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="info-card">
+      <p class="info-header">At a Glance</p>
+      <div class="info-item">
+        <p class="info-label">Research Interests</p>
+        <p class="info-value">Macroeconomics &amp; Finance · International Economics · Industrial Organization · Health Economics</p>
+      </div>
+      <div class="info-item">
+        <p class="info-label">Department</p>
+        <p class="info-value"><a href="https://www.usc.gal/en/department/fundamentals-economic-analysis">Fundamentos da Análise Económica</a></p>
+      </div>
+      <div class="info-item">
+        <p class="info-label">Email</p>
+        <p class="info-value"><a href="mailto:ar.sampayo@usc.es">ar.sampayo@usc.es</a></p>
+      </div>
+      <div class="info-item">
+        <p class="info-label">Phone</p>
+        <p class="info-value">(+34) 881 811 554</p>
+      </div>
+      <div class="info-item">
+        <p class="info-label">Scholar</p>
+        <p class="info-value"><a href="https://scholar.google.com/citations?user=nPSRBv4AAAAJ" target="_blank">Google Scholar Profile</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat-cell">
+    <span class="stat-num">129</span>
+    <span class="stat-label">Citations</span>
+  </div>
+  <div class="stat-cell">
+    <span class="stat-num">6</span>
+    <span class="stat-label">h-index</span>
+  </div>
+  <div class="stat-cell">
+    <span class="stat-num">11</span>
+    <span class="stat-label">Journal Articles</span>
+  </div>
+  <div class="stat-cell">
+    <span class="stat-num">2003</span>
+    <span class="stat-label">PhD</span>
+  </div>
+</div>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <p class="section-label">Background</p>
+    <h2 class="section-title">Education</h2>
+    <div class="edu-grid">
+      <div class="edu-item">
+        <span class="edu-year">2003</span>
+        <div>
+          <p class="edu-title">Doctor (Ph.D.) in Economics</p>
+          <p class="edu-inst">Universidad de Santiago de Compostela</p>
+        </div>
+      </div>
+      <div class="edu-item">
+        <span class="edu-year">1993</span>
+        <div>
+          <p class="edu-title">Suficiencia Investigadora (M.Phil.) in Economics</p>
+          <p class="edu-inst">Universidad Carlos III de Madrid</p>
+        </div>
+      </div>
+      <div class="edu-item">
+        <span class="edu-year">1990</span>
+        <div>
+          <p class="edu-title">Licenciatura (B.A.) in Economics</p>
+          <p class="edu-inst">Universidad de Santiago de Compostela</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="container">
+    <p class="section-label">Research</p>
+    <h2 class="section-title">Publications</h2>
+
+    <p class="pub-subsection">Publications in Refereed Journals</p>
+    <div class="pub-list">
+
+      <div class="pub-item">
+        <div class="pub-year">2025</div>
+        <div>
+          <p class="pub-title"><a href="https://link.springer.com/article/10.1007/s40258-025-00974-9">Authors' Reply: Comparison of Caregiver and General Population Preferences for Dependency-Related Health States</a></p>
+          <p class="pub-authors">With Eva Rodríguez-Míguez</p>
+          <p class="pub-journal">Applied Health Economics and Health Policy, 23(5), 933–934</p>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2025</div>
+        <div>
+          <p class="pub-title"><a href="https://link.springer.com/article/10.1007/s40258-024-00908-x">Comparison of Caregiver and General Population Preferences for Dependency-Related Health States</a></p>
+          <p class="pub-authors">With Eva Rodríguez-Míguez</p>
+          <p class="pub-journal">Applied Health Economics and Health Policy, 23(1), 105–117</p>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2024</div>
+        <div>
+          <p class="pub-title"><a href="https://link.springer.com/article/10.1007/s00712-024-00860-3">Licensing of a new technology by an outside and uninformed licensor</a></p>
+          <p class="pub-authors">With Manel Antelo</p>
+          <p class="pub-journal">Journal of Economics, 142(2), 111–162</p>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2017</div>
+        <div>
+          <p class="pub-title"><a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/manc.12157">On the Number of Licenses with Signalling</a></p>
+          <p class="pub-authors">With Manel Antelo</p>
+          <p class="pub-journal">The Manchester School, 85(6), 635–660</p>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2017</div>
+        <div>
+          <p class="pub-title"><a href="https://onlinelibrary.wiley.com/doi/10.1111/rode.12339">Complementarity, linkages between firms, and the effect of entry costs on productivity</a></p>
+          <p class="pub-authors">With Fernando del Río</p>
+          <p class="pub-journal">Review of Development Economics, 21(4), 1281–1304</p>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2016</div>
+        <div>
+          <p class="pub-title"><a href="https://www.sciencedirect.com/science/article/abs/pii/S0277953616300752">The DEP-6D, A New Preference-Based Measure to Assess Health States of Dependency</a></p>
+          <p class="pub-authors">With Eva Rodríguez-Míguez, J.M. Abellán-Perpiñán, X.C. Álvarez, X.M. González</p>
+          <p class="pub-journal">Social Science &amp; Medicine, 153, 210–219</p>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2014</div>
+        <div>
+          <p class="pub-title"><a href="https://link.springer.com/content/pdf/10.1007/s10258-014-0106-6.pdf">Obsolescence and Productivity</a></p>
+          <p class="pub-authors">With Fernando del Río</p>
+          <p class="pub-journal">Portuguese Economic Journal, 13(3), 195–216</p>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2011</div>
+        <div>
+          <p class="pub-title"><a href="https://www.funcas.es/wp-content/uploads/Migracion/Articulos/FUNCAS_PEE/129art04.pdf">Distribución Territorial de la Dependencia en España y en Europa</a></p>
+          <p class="pub-authors">With Begoña Álvarez, Eva Rodríguez-Míguez</p>
+          <p class="pub-journal">Papeles de Economía Española, 129, 27–47</p>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2008</div>
+        <div>
+          <p class="pub-title"><a href="https://www.tandfonline.com/doi/abs/10.1080/08898480802440828">A Vintage Model of Trade in Secondhand Markets and the Lifetime of Durable Goods</a></p>
+          <p class="pub-authors">With Omar Licandro, Luis A. Puch</p>
+          <p class="pub-journal">Mathematical Population Studies, 15(4), 249–266</p>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2006</div>
+        <div>
+          <p class="pub-title"><a href="https://hpe-rpe.org/ief/55/179-4-2006/994/preferencias-sociales-en-las-decisiones-publicas-priorizacion-de-pacientes-en-listas-de-espera-quirurgicas.pdf">Preferencias Sociales en las Decisiones Públicas: Priorización de Pacientes en Listas de Espera Quirúrgica</a></p>
+          <p class="pub-authors">With Pilar Abad Romero, Begoña Álvarez, Eva Rodríguez-Míguez</p>
+          <p class="pub-journal">Hacienda Pública Española / Revista de Economía Pública, 179(4), 113–145</p>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2006</div>
+        <div>
+          <p class="pub-title"><a href="https://www.fundacionsepi.es/wp-content/uploads/2026/02/v30i2a3.pdf">The Effects of Replacement Schemes on Car Sales: The Spanish Case</a></p>
+          <p class="pub-authors">With Omar Licandro</p>
+          <p class="pub-journal">Investigaciones Económicas, 30(2), 239–282</p>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="pub-subsection">Working Papers &amp; Other Publications</p>
+    <div class="pub-list">
+
+      <div class="pub-item">
+        <div class="pub-year">2017</div>
+        <div>
+          <p class="pub-title">Licensing contracts and the number of licenses under screening</p>
+          <p class="pub-authors">With Manel Antelo</p>
+          <p class="pub-journal">MPRA Working Paper 77252</p>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2014</div>
+        <div>
+          <p class="pub-title">On the number of licenses under symmetric versus asymmetric information with signaling</p>
+          <p class="pub-authors">With Manel Antelo</p>
+          <p class="pub-journal">MPRA Working Paper 60759</p>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2007</div>
+        <div>
+          <p class="pub-title">Subsidios al desguace de bienes duraderos, heterogeneidad y ecos de reemplazo</p>
+          <p class="pub-authors">With Omar Licandro</p>
+          <p class="pub-journal">Cuadernos Económicos del ICE, 72(2)</p>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2006</div>
+        <div>
+          <p class="pub-title">Secondhand Markets and the Lifetime of Durable Goods</p>
+          <p class="pub-authors">With Omar Licandro, Luis A. Puch</p>
+          <p class="pub-journal">FEDEA Working Paper 2006-10</p>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2005</div>
+        <div>
+          <p class="pub-title">Obsolescence and Productivity</p>
+          <p class="pub-authors">With Fernando del Río</p>
+          <p class="pub-journal">FEDEA Working Paper 2005-25</p>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2000</div>
+        <div>
+          <p class="pub-title">Evaluación de los efectos del plan Prever a partir de un modelo de simulación del parque español de automóviles</p>
+          <p class="pub-authors">With Omar Licandro</p>
+          <p class="pub-journal">FEDEA Working Paper 2000-04</p>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">1997</div>
+        <div>
+          <p class="pub-title">La demanda de automóviles en España: Un análisis de la evolución y variabilidad de las tasas de reemplazo</p>
+          <p class="pub-authors">With Omar Licandro</p>
+          <p class="pub-journal">FEDEA Working Paper 97-12</p>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">1997</div>
+        <div>
+          <p class="pub-title">Los efectos de los planes Renove y Prever sobre el reemplazo de turismos</p>
+          <p class="pub-authors">With Omar Licandro</p>
+          <p class="pub-journal">Economía Industrial, 314</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TEACHING -->
+<section id="teaching">
+  <div class="container">
+    <p class="section-label">Teaching</p>
+    <h2 class="section-title">Courses</h2>
+
+    <div class="teach-group">
+      <p class="teach-group-title">Postgraduate</p>
+      <div class="teach-item"><span class="teach-name">Banking</span><span class="teach-period">Spring, 2019–2026</span></div>
+      <div class="teach-item"><span class="teach-name">Asset Pricing</span><span class="teach-period">Spring, 2016</span></div>
+      <div class="teach-item"><span class="teach-name">Asset Pricing and Macroeconomics</span><span class="teach-period">Fall, 2007–2008</span></div>
+      <div class="teach-item"><span class="teach-name">Macroeconomics: Consumption and Investment</span><span class="teach-period">Fall 2004, Spring 2006</span></div>
+    </div>
+
+    <div class="teach-group">
+      <p class="teach-group-title">Undergraduate</p>
+      <div class="teach-item"><span class="teach-name">International Economics</span><span class="teach-period">Spring, 2021–2026</span></div>
+      <div class="teach-item"><span class="teach-name">Microeconomics of Finance</span><span class="teach-period">Spring, 2011–2026</span></div>
+      <div class="teach-item"><span class="teach-name">Intermediate Microeconomics</span><span class="teach-period">Spring, 2011–2020</span></div>
+      <div class="teach-item"><span class="teach-name">Intermediate Macroeconomics</span><span class="teach-period">2006–2009</span></div>
+      <div class="teach-item"><span class="teach-name">Banking</span><span class="teach-period">2002–2003, 2005–2006</span></div>
+      <div class="teach-item"><span class="teach-name">Consumption and Investment (Macroeconomics)</span><span class="teach-period">2000–2001</span></div>
+      <div class="teach-item"><span class="teach-name">Advanced Microeconomics (General Equilibrium)</span><span class="teach-period">1997–2000</span></div>
+      <div class="teach-item"><span class="teach-name">Introductory Macroeconomics</span><span class="teach-period">1997–1999</span></div>
+      <div class="teach-item"><span class="teach-name">Industrial Organisation</span><span class="teach-period">1997–1999</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <p class="section-label">Contact</p>
+    <h2 class="section-title">Get in Touch</h2>
+    <div class="contact-grid">
+      <div>
+        <div class="contact-item">
+          <span class="contact-icon">◈</span>
+          <div>
+            <p class="contact-label">Email</p>
+            <p class="contact-value"><a href="mailto:ar.sampayo@usc.es">ar.sampayo@usc.es</a></p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon">◈</span>
+          <div>
+            <p class="contact-label">Phone</p>
+            <p class="contact-value">(+34) 881 811 554</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon">◈</span>
+          <div>
+            <p class="contact-label">Twitter</p>
+            <p class="contact-value"><a href="https://twitter.com/antsampayo" target="_blank">@antsampayo</a></p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="contact-item">
+          <span class="contact-icon">◈</span>
+          <div>
+            <p class="contact-label">Postal Address</p>
+            <p class="contact-value">Dpto. de Fundamentos da Análise Económica<br>Facultade de CC. Económicas e Empresariais<br>Avda. Burgo das Nacións s/n<br>15782 Santiago de Compostela (Spain)</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon">◈</span>
+          <div>
+            <p class="contact-label">Profiles</p>
+            <p class="contact-value">
+              <a href="https://scholar.google.com/citations?user=nPSRBv4AAAAJ" target="_blank">Google Scholar</a><br>
+              <a href="https://www.usc.gal/en/department/fundamentals-economic-analysis/directory/antonio-rodriguez-sampayo-902" target="_blank">USC Directory</a><br>
+              <a href="https://ecobas.gal/en/" target="_blank">ECOBAS</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-logo">Antonio Sampayo · USC</span>
+  <ul class="footer-links">
+    <li><a href="#education">Education</a></li>
+    <li><a href="#publications">Research</a></li>
+    <li><a href="#teaching">Teaching</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <span class="footer-copy">© 2025 Antonio Sampayo</span>
+</footer>
+
+</body>
+</html>
