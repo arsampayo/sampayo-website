@@ -22,7 +22,7 @@
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-  body { background: var(--navy); color: var(--text-body); font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.7; overflow-x: hidden; }
+  body { background: var(--navy); color: var(--text-body); font-family: 'Inter', sans-serif; font-size: 18px; line-height: 1.7; overflow-x: hidden; }
 
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
@@ -30,38 +30,40 @@
     border-bottom: 0.5px solid var(--border);
     padding: 0 2.5rem; display: flex; align-items: center; justify-content: space-between; height: 60px;
   }
-  .nav-logo { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; color: var(--gold); text-transform: uppercase; text-decoration: none; }
+  .nav-logo { font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.12em; color: var(--gold); text-transform: uppercase; text-decoration: none; }
   .nav-links { display: flex; gap: 2rem; list-style: none; }
-  .nav-links a { text-decoration: none; font-size: 13px; color: var(--text-muted); letter-spacing: 0.04em; transition: color 0.2s; }
+  .nav-links a { text-decoration: none; font-size: 15px; color: var(--text-muted); letter-spacing: 0.04em; transition: color 0.2s; }
   .nav-links a:hover { color: var(--ivory); }
 
   /* HERO */
   .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; position: relative; overflow: hidden; }
   .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 70% 50%, rgba(0,82,155,0.03) 0%, transparent 70%), radial-gradient(ellipse 40% 60% at 20% 80%, rgba(139,105,20,0.02) 0%, transparent 60%); pointer-events: none; }
   .hero-left { display: flex; flex-direction: column; justify-content: center; padding: 8rem 3.5rem 4rem; position: relative; z-index: 1; }
-  .hero-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; color: var(--gold); text-transform: uppercase; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
+  .hero-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.18em; color: var(--gold); text-transform: uppercase; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
   .hero-eyebrow::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--gold); }
   .hero-title { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 5vw, 4rem); font-weight: 400; line-height: 1.12; color: var(--ivory); margin-bottom: 0.5rem; }
   .hero-title em { font-style: italic; color: var(--gold-light); }
-  .hero-cv { margin-left: auto; font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.12em; color: var(--accent); text-decoration: none; text-transform: uppercase; align-self: flex-start; padding-top: 0.5rem; }
+  .hero-directory { display: inline-block; color: var(--accent); font-size: 16px; text-decoration: none; border-bottom: 1px solid var(--border); }
+  .hero-directory:hover { color: var(--gold); border-color: var(--gold); }
+  .hero-cv { margin-left: auto; font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.12em; color: var(--accent); text-decoration: none; text-transform: uppercase; align-self: flex-start; padding-top: 0.5rem; }
   .hero-cv:hover { color: var(--gold); text-decoration: underline; }
-  .hero-role { font-size: 17px; color: var(--text-body); margin-bottom: 0.35rem; }
-  .hero-affil { font-size: 14px; color: var(--text-muted); margin-bottom: 0.35rem; }
+  .hero-role { font-size: 19px; color: var(--text-body); margin-bottom: 0.35rem; }
+  .hero-affil { font-size: 16px; color: var(--text-muted); margin-bottom: 0.35rem; }
   .hero-affil a { color: var(--accent); text-decoration: none; }
   .hero-affil a:hover { text-decoration: underline; }
-  .hero-updated { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.1em; color: var(--text-muted); text-transform: uppercase; margin: 1.5rem 0 2.5rem; }
+  .hero-updated { font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.1em; color: var(--text-muted); text-transform: uppercase; margin: 1.5rem 0 2.5rem; }
   .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
-  .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.7rem 1.6rem; background: var(--gold); color: #fff; text-decoration: none; font-size: 13px; font-weight: 600; letter-spacing: 0.04em; transition: background 0.2s, transform 0.15s; }
+  .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.7rem 1.6rem; background: var(--gold); color: #fff; text-decoration: none; font-size: 15px; font-weight: 600; letter-spacing: 0.04em; transition: background 0.2s, transform 0.15s; }
   .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
-  .btn-secondary { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.7rem 1.6rem; background: transparent; color: var(--ivory); text-decoration: none; font-size: 13px; letter-spacing: 0.04em; border: 0.5px solid var(--border); transition: border-color 0.2s, color 0.2s; }
+  .btn-secondary { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.7rem 1.6rem; background: transparent; color: var(--ivory); text-decoration: none; font-size: 15px; letter-spacing: 0.04em; border: 0.5px solid var(--border); transition: border-color 0.2s, color 0.2s; }
   .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
 
   .hero-right { display: flex; align-items: center; justify-content: center; padding: 8rem 3rem 4rem 1rem; position: relative; z-index: 1; }
   .info-card { width: 100%; max-width: 340px; }
-  .info-header { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.14em; color: var(--text-muted); text-transform: uppercase; margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 0.5px solid var(--border); }
+  .info-header { font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: var(--text-muted); text-transform: uppercase; margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 0.5px solid var(--border); }
   .info-item { margin-bottom: 1.25rem; }
-  .info-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.1em; color: var(--gold); text-transform: uppercase; margin-bottom: 0.15rem; }
-  .info-value { font-size: 13.5px; color: var(--ivory); line-height: 1.5; }
+  .info-label { font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.1em; color: var(--gold); text-transform: uppercase; margin-bottom: 0.15rem; }
+  .info-value { font-size: 15.5px; color: var(--ivory); line-height: 1.5; }
   .info-value a { color: var(--accent); text-decoration: none; }
   .info-value a:hover { text-decoration: underline; }
 
@@ -69,60 +71,60 @@
   .stats-bar { border-top: 0.5px solid var(--border); border-bottom: 0.5px solid var(--border); display: grid; grid-template-columns: repeat(4, 1fr); }
   .stat-cell { padding: 2rem 2.5rem; border-right: 0.5px solid var(--border); text-align: center; }
   .stat-cell:last-child { border-right: none; }
-  .stat-num { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 600; color: var(--ivory); display: block; line-height: 1; margin-bottom: 0.3rem; }
-  .stat-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.12em; color: var(--text-muted); text-transform: uppercase; }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: calc(2.4rem + 2px); font-weight: 600; color: var(--ivory); display: block; line-height: 1; margin-bottom: 0.3rem; }
+  .stat-label { font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.12em; color: var(--text-muted); text-transform: uppercase; }
 
   /* SECTIONS */
   section { padding: 5rem 0; }
   .container { max-width: 1000px; margin: 0 auto; padding: 0 3rem; }
-  .section-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.18em; color: var(--gold); text-transform: uppercase; display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; }
+  .section-label { font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.18em; color: var(--gold); text-transform: uppercase; display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; }
   .section-label::after { content: ''; flex: 1; height: 0.5px; background: var(--border-gold); max-width: 120px; }
-  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 400; color: var(--ivory); line-height: 1.25; margin-bottom: 1.5rem; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(calc(1.6rem + 2px), 3vw, calc(2.2rem + 2px)); font-weight: 400; color: var(--ivory); line-height: 1.25; margin-bottom: 1.5rem; }
 
   /* EDUCATION */
   #education { background: rgba(0,0,0,0.02); }
   .edu-grid { display: flex; flex-direction: column; gap: 0; border-top: 0.5px solid var(--border); }
   .edu-item { display: grid; grid-template-columns: 65px 1fr; gap: 1.5rem; padding: 1.25rem 0; border-bottom: 0.5px solid var(--border); }
-  .edu-year { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--gold); letter-spacing: 0.06em; padding-top: 2px; }
-  .edu-title { font-size: 14px; color: var(--ivory); font-weight: 500; margin-bottom: 0.15rem; }
-  .edu-inst { font-size: 13px; color: var(--text-muted); }
+  .edu-year { font-family: 'JetBrains Mono', monospace; font-size: 14px; color: var(--gold); letter-spacing: 0.06em; padding-top: 2px; }
+  .edu-title { font-size: 16px; color: var(--ivory); font-weight: 500; margin-bottom: 0.15rem; }
+  .edu-inst { font-size: 15px; color: var(--text-muted); }
 
   /* PUBLICATIONS */
-  .pub-subsection { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.12em; color: var(--accent); text-transform: uppercase; margin: 2.5rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 0.5px solid var(--border); }
+  .pub-subsection { font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.12em; color: var(--accent); text-transform: uppercase; margin: 2.5rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 0.5px solid var(--border); }
   .pub-subsection:first-of-type { margin-top: 0; }
   .pub-list { display: flex; flex-direction: column; }
   .pub-item { display: grid; grid-template-columns: 55px 1fr; gap: 1.25rem; padding: 1.25rem 0; border-bottom: 0.5px solid var(--border); }
-  .pub-year { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--gold); letter-spacing: 0.06em; padding-top: 3px; }
-  .pub-title { font-size: 14px; color: var(--ivory); font-weight: 400; margin-bottom: 0.2rem; line-height: 1.45; }
+  .pub-year { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--gold); letter-spacing: 0.06em; padding-top: 3px; }
+  .pub-title { font-size: 16px; color: var(--ivory); font-weight: 400; margin-bottom: 0.2rem; line-height: 1.45; }
   .pub-title a { color: var(--ivory); text-decoration: none; border-bottom: 1px solid var(--border); transition: border-color 0.2s; }
   .pub-title a:hover { border-color: var(--accent); color: var(--accent); }
-  .pub-authors { font-size: 12px; color: var(--text-muted); margin-bottom: 0.15rem; }
-  .pub-journal { font-size: 12px; color: var(--accent); font-style: italic; }
+  .pub-authors { font-size: 14px; color: var(--text-muted); margin-bottom: 0.15rem; }
+  .pub-journal { font-size: 14px; color: var(--accent); font-style: italic; }
 
   /* TEACHING */
   #teaching { background: rgba(0,0,0,0.02); }
   .teach-group { margin-bottom: 2rem; }
-  .teach-group-title { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.12em; color: var(--accent); text-transform: uppercase; margin-bottom: 0.75rem; padding-bottom: 0.5rem; border-bottom: 0.5px solid var(--border); }
+  .teach-group-title { font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.12em; color: var(--accent); text-transform: uppercase; margin-bottom: 0.75rem; padding-bottom: 0.5rem; border-bottom: 0.5px solid var(--border); }
   .teach-item { display: grid; grid-template-columns: 1fr auto; gap: 1rem; padding: 0.6rem 0; border-bottom: 0.5px solid rgba(0,0,0,0.04); }
-  .teach-name { font-size: 14px; color: var(--ivory); }
-  .teach-period { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-muted); letter-spacing: 0.04em; }
+  .teach-name { font-size: 16px; color: var(--ivory); }
+  .teach-period { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--text-muted); letter-spacing: 0.04em; }
 
   /* CONTACT */
   #contact { background: var(--slate); border-top: 0.5px solid var(--border); }
   .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 2rem; }
   .contact-item { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.5rem; }
-  .contact-icon { font-size: 1rem; color: var(--gold); margin-top: 2px; flex-shrink: 0; }
-  .contact-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.2rem; }
-  .contact-value { font-size: 14px; color: var(--ivory); }
+  .contact-icon { font-size: calc(1rem + 2px); color: var(--gold); margin-top: 2px; flex-shrink: 0; }
+  .contact-label { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.2rem; }
+  .contact-value { font-size: 16px; color: var(--ivory); }
   .contact-value a { color: var(--accent); text-decoration: none; }
   .contact-value a:hover { color: var(--gold); }
 
   /* FOOTER */
   footer { background: #1A2332; border-top: 0.5px solid var(--border); padding: 2rem 3rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
-  .footer-logo { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #8A9BB0; letter-spacing: 0.12em; text-transform: uppercase; }
-  .footer-copy { font-size: 12px; color: #8A9BB0; }
+  .footer-logo { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #8A9BB0; letter-spacing: 0.12em; text-transform: uppercase; }
+  .footer-copy { font-size: 14px; color: #8A9BB0; }
   .footer-links { display: flex; gap: 1.5rem; list-style: none; }
-  .footer-links a { font-size: 12px; color: #8A9BB0; text-decoration: none; transition: color 0.2s; }
+  .footer-links a { font-size: 14px; color: #8A9BB0; text-decoration: none; transition: color 0.2s; }
   .footer-links a:hover { color: #FFFFFF; }
 
   @media (max-width: 900px) {
@@ -148,6 +150,7 @@
     <li><a href="#education">Education</a></li>
     <li><a href="#publications">Research</a></li>
     <li><a href="#teaching">Teaching</a></li>
+    <li><a href="CVAntonio2026.pdf" target="_blank">CV</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -155,14 +158,14 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-left">
-    <p class="hero-eyebrow">Economist</p>
-    <div style="display:flex;align-items:center;gap:1.75rem;margin-bottom:0.5rem;">
-      <img src="foto1.jpg" alt="Antonio Sampayo" style="width:110px;height:110px;border-radius:50%;object-fit:cover;object-position:center 15%;border:2.5px solid rgba(0,0,0,0.08);box-shadow:0 4px 12px rgba(0,0,0,0.1);flex-shrink:0;">
-      <h1 class="hero-title">Antonio<br><em>Sampayo</em></h1>
-      <a href="CVAntonio2026.pdf" class="hero-cv" target="_blank">CV</a>
+    <div style="display:flex;align-items:center;gap:1.75rem;margin-bottom:0.5rem;flex-wrap:wrap;">
+      <img src="foto1.jpg" alt="Antonio Sampayo" style="width:min(440px,42vw);height:min(440px,42vw);border-radius:50%;object-fit:cover;object-position:center 15%;border:2.5px solid rgba(0,0,0,0.08);box-shadow:0 4px 12px rgba(0,0,0,0.1);flex-shrink:0;">
+      <div>
+        <h1 class="hero-title">Antonio<br><em>Sampayo</em></h1>
+      </div>
     </div>
-    <p class="hero-role">Associate Professor · <a href="https://www.usc.gal/en/department/fundamentals-economic-analysis/directory/antonio-rodriguez-sampayo-902" style="color:var(--text-body);text-decoration:none;border-bottom:1px solid var(--border);">Dept. de Fundamentos da Análise Económica</a></p>
-    <p class="hero-affil"><a href="https://www.usc.gal" target="_blank">Universidade de Santiago de Compostela</a></p>
+    <p class="hero-role">Associate Professor</p>
+    <p class="hero-affil"><a href="https://www.usc.gal" target="_blank">Universidade de Santiago de Compostela</a> (<a href="https://www.usc.gal/en/department/fundamentals-economic-analysis/directory/antonio-rodriguez-sampayo-902" class="hero-directory" target="_blank">USC Directory</a>)</p>
     <p class="hero-affil">Permanent Researcher · <a href="https://ecobas.gal/en/" target="_blank">ECOBAS</a></p>
     <p class="hero-updated">Updated: June, 2026</p>
     <div class="hero-ctas">
@@ -172,7 +175,6 @@
   </div>
   <div class="hero-right">
     <div class="info-card">
-      <p class="info-header">At a Glance</p>
       <div class="info-item">
         <p class="info-label">Research Interests</p>
         <p class="info-value">Macroeconomics &amp; Finance · International Economics · Industrial Organization · Health Economics</p>
